@@ -1,11 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Raízes | Seja voluntário</title>
+  <meta name="description" content="Cadastre-se para ser voluntário do Instituto Raízes nas frentes de educação, alimentação ou meio ambiente.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Instituto Raízes</a>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-intro">
+      <div class="container">
+        <h1>Como ajudar</h1>
+        <p class="hero-lead">
+          Tem mais de um jeito de fazer parte: doando, divulgando ou
+          entrando como voluntário direto num dos projetos.
+        </p>
+      </div>
+    </section>
+
+    <section class="support-options" id="apoiar" aria-labelledby="apoiar-title">
+      <div class="container">
+        <h2 id="apoiar-title" class="visually-hidden">Formas de apoiar</h2>
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Doação recorrente</h3>
+            <p>Uma contribuição mensal, mesmo pequena, é o que mantém os projetos de pé o ano inteiro.</p>
+            <p class="support-detail">Chave PIX: <strong>doacoes@institutoraizes.org.br</strong></p>
+          </article>
+
+          <article class="support-card">
+            <h3>Divulgação</h3>
+            <p>Compartilhar nosso trabalho com quem você conhece ajuda a chegar em mais voluntários e parceiros.</p>
+            <p class="support-detail">Siga e compartilhe: <strong>@institutoraizes</strong></p>
+          </article>
+
+          <article class="support-card">
+            <h3>Ser voluntário</h3>
+            <p>Doe algumas horas do seu mês direto num dos projetos de educação, alimentação ou meio ambiente.</p>
+            <a href="#form-cadastro" class="support-link">Preencher cadastro ↓</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="container form-container">
+        <h2 class="form-heading">Cadastro de voluntário</h2>
+
+        <form id="form-cadastro" novalidate>
+
+          <p class="privacy-note">
+            🔒 Seus dados são usados apenas para fins de demonstração deste
+            projeto acadêmico e não são enviados, armazenados ou
+            compartilhados com nenhum servidor.
+          </p>
+
+          <fieldset>
+            <legend>Dados pessoais</legend>
+
+            <div class="form-field">
+              <label for="nome">Nome completo</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                required
+                minlength="3"
+                autocomplete="name"
+              >
+              <span class="field-error">Informe seu nome completo (mínimo 3 letras).</span>
+            </div>
+
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+              >
+              <span class="field-error">Informe um e-mail válido.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cpf">CPF</label>
+                <input
+                  type="text"
+                  id="cpf"
+                  name="cpf"
+                  inputmode="numeric"
+                  placeholder="000.000.000-00"
+                  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                  maxlength="14"
+                  autocomplete="off"
+                  required
+                >
+                <span class="field-error">Digite um CPF válido, no formato 000.000.000-00.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  inputmode="numeric"
+                  placeholder="(00) 00000-0000"
+                  pattern="\(\d{2}\) \d{4,5}-\d{4}"
+                  maxlength="15"
+                  required
+                >
+                <span class="field-error">Digite um telefone válido, com DDD.</span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="cep">CEP</label>
+              <input
+                type="text"
+                id="cep"
+                name="cep"
+                inputmode="numeric"
+                placeholder="00000-000"
+                pattern="\d{5}-\d{3}"
+                maxlength="9"
+                required
+              >
+              <span class="field-error">Digite um CEP válido, no formato 00000-000.</span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Como quer ajudar</legend>
+
+            <div class="form-field">
+              <label for="frente">Frente de interesse</label>
+              <select id="frente" name="frente" required>
+                <option value="" selected disabled>Selecione uma opção</option>
+                <option value="educacao">Educação</option>
+                <option value="alimentacao">Alimentação</option>
+                <option value="meio-ambiente">Meio ambiente</option>
+                <option value="qualquer">Qualquer uma</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="mensagem">Mensagem (opcional)</label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="4"
+                maxlength="500"
+                placeholder="Conte um pouco sobre disponibilidade de dias/horários ou experiência anterior"
+              ></textarea>
+            </div>
+
+            <div class="form-field form-field-checkbox">
+              <input type="checkbox" id="lgpd" name="lgpd" required>
+              <label for="lgpd">
+                Autorizo o tratamento dos meus dados pessoais (nome, CPF,
+                telefone, e-mail e CEP) pelo Instituto Raízes, conforme a
+                Lei Geral de Proteção de Dados (LGPD), exclusivamente
+                para fins de cadastro e contato como voluntário.
+              </label>
+              <span class="field-error">É preciso autorizar o tratamento dos dados para enviar o cadastro.</span>
+            </div>
+
+            <div class="form-field form-field-checkbox">
+              <input type="checkbox" id="termos" name="termos" required>
+              <label for="termos">
+                Concordo em ser contatado(a) pelo Instituto Raízes por e-mail ou telefone.
+              </label>
+              <span class="field-error">É preciso concordar para enviar o cadastro.</span>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary">Enviar cadastro</button>
+
+          <p id="form-success" class="form-success" role="status" hidden>
+            Cadastro recebido! Em breve alguém da equipe entra em contato.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Instituto Raízes</p>
+        <p>CNPJ 00.000.000/0001-00 · Minas Gerais, Brasil</p>
+        <p>
+          <a href="mailto:contato@institutoraizes.org.br">contato@institutoraizes.org.br</a>
+          · (32) 3333-4444
+        </p>
+      </div>
+      <nav aria-label="Links do rodapé">
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Seja voluntário</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/mascara.js"></script>
 </body>
 </html>

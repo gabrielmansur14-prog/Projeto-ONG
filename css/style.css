@@ -180,6 +180,25 @@ a {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.focus-card:hover {
+  box-shadow: 0 8px 20px rgba(31, 61, 43, 0.12);
+  transform: translateY(-2px);
+}
+
+.focus-link {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+/* área clicável cobre o card inteiro, sem precisar transformar o article em <a> */
+.focus-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .focus-img {
@@ -291,5 +310,263 @@ a {
   .header-inner {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .project-item,
+  .project-item-reverse {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PÁGINA DE PROJETOS */
+.page-intro {
+  padding: 72px 0 40px;
+}
+
+.page-intro h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.projects-list {
+  padding-bottom: 64px;
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-item-reverse .project-img {
+  order: 2;
+}
+
+.project-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.project-body h2 {
+  margin-bottom: 12px;
+}
+
+.project-meta {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.project-meta li {
+  padding: 4px 0;
+  border-top: 1px dashed var(--color-border);
+}
+
+.project-meta li:first-child {
+  border-top: none;
+}
+
+.cta-band {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 56px 0;
+}
+
+.cta-band h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.cta-band-inner {
+  text-align: center;
+}
+
+.cta-band .btn-primary {
+  background: var(--color-accent);
+}
+
+/* FORMULÁRIO DE CADASTRO */
+.form-section {
+  padding-bottom: 80px;
+}
+
+.form-heading {
+  margin-bottom: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.support-options {
+  padding: 8px 0 56px;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.support-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 20px;
+}
+
+.support-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.support-detail {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.support-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 720px) {
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-container {
+  max-width: 640px;
+}
+
+.privacy-note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin-bottom: 24px;
+}
+
+fieldset {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  padding: 24px 0;
+  margin: 0 0 8px;
+}
+
+legend {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 1px;
+}
+
+.field-error {
+  display: none;
+  color: #B3261E;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* só mostra as mensagens de erro depois de uma tentativa de envio */
+.form-tentou-enviar .form-field input:invalid ~ .field-error,
+.form-tentou-enviar .form-field-checkbox input:invalid ~ .field-error {
+  display: block;
+}
+
+.form-tentou-enviar input:invalid,
+.form-tentou-enviar select:invalid {
+  border-color: #B3261E;
+}
+
+.form-field-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-field-checkbox input {
+  width: auto;
+  margin-top: 4px;
+}
+
+.form-field-checkbox label {
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.form-success {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #E7F0E9;
+  border: 1px solid var(--color-primary-light);
+  border-radius: 4px;
+  color: var(--color-primary);
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
