@@ -120,6 +120,8 @@ a {
   padding: 12px 24px;
   border-radius: 4px;
   border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+              box-shadow 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
 }
 
 .btn-primary {
@@ -131,10 +133,39 @@ a {
   background: var(--color-primary-light);
 }
 
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 90, 63, 0.35);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-primary:disabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn-secondary {
   background: transparent;
   color: var(--color-primary);
   border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background: rgba(31, 61, 43, 0.06);
+}
+
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 61, 43, 0.2);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
 }
 
 /* ABOUT */
@@ -569,4 +600,92 @@ legend {
   .form-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===================================================================
+   NAV MOBILE — botão hambúrguer (.nav-toggle) e comportamento de
+   .nav-list em telas estreitas. Depende de #navToggle/#navList no HTML.
+   =================================================================== */
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-primary);
+  transition: transform 0.25s ease;
+}
+.nav-toggle-icon::before { transform: translateY(-7px); }
+.nav-toggle-icon::after  { transform: translateY(5px); }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before { transform: translateY(0) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after  { transform: translateY(0) rotate(-45deg); }
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-list.is-open { max-height: 300px; }
+
+  .nav-list li { padding: 12px 24px; border-top: 1px solid var(--color-border); }
+
+  .header-inner { position: relative; }
+}
+
+/* ===================================================================
+   BREAKPOINTS ADICIONAIS — completa os 5 pontos de quebra declarados
+   no roteiro: até 480 / 481-768 (já coberto pelo @media 720 acima) /
+   769-1024 / 1025-1440 (base, sem media query) / 1441+
+   =================================================================== */
+
+/* BP1 — até 480px: Mobile Compacto */
+@media (max-width: 480px) {
+  h1 { font-size: clamp(1.6rem, 6vw, 2rem); }
+  .hero { padding: 72px 0 56px; }
+  .container { padding: 0 16px; }
+}
+
+/* BP3 — 769px a 1024px: Tablet Landscape / Small Desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1.4fr 1fr; gap: 32px; }
+  .focus-grid,
+  .impact-grid,
+  .support-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-item { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
+/* BP5 — a partir de 1441px: Desktop Panorâmico */
+@media (min-width: 1441px) {
+  .container { max-width: 1320px; }
+  .hero { padding: 140px 0 112px; }
+  .focus-grid,
+  .impact-grid { gap: 40px; }
 }

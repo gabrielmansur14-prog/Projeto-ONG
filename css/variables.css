@@ -1,0 +1,55 @@
+/* ===================================================================
+   INSTITUTO RAÍZES — DESIGN SYSTEM
+   Variáveis globais de cor, tipografia e espaçamento
+   =================================================================== */
+
+:root {
+
+  /* ---------- CORES: PRIMÁRIA (verde-raiz) ---------- */
+  --color-primary-900: #1F3D2B;   /* texto sobre fundo claro, headers escuros */
+  --color-primary-600: #3B6B4A;   /* cor de marca — botões, links, ícones */
+  --color-primary-200: #C9DDC9;   /* tints — badges, fundos suaves, hover leve */
+
+  /* ---------- CORES: SECUNDÁRIA (âmbar-terra) ---------- */
+  --color-secondary-600: #C98A2B; /* acentos, CTAs secundários, destaques */
+  --color-secondary-200: #F0DDB4; /* tints — fundos de seção, tags */
+
+  /* ---------- CORES: NEUTRAS ---------- */
+  --color-neutral-900: #211F1C;   /* texto principal (não é #000 puro) */
+  --color-neutral-600: #5B564E;   /* texto secundário, legendas */
+  --color-neutral-300: #D8D3C8;   /* bordas, divisores */
+  --color-neutral-100: #F7F5F0;   /* fundo geral da página */
+  --color-white:       #FFFFFF;   /* superfícies — cards, formulários */
+
+  /* ---------- CORES: FEEDBACK (formulário de cadastro) ---------- */
+  --color-success: #2F7D4F;
+  --color-error:   #B3432B;
+
+  /* ---------- TIPOGRAFIA: FAMÍLIAS ---------- */
+  --font-display: 'Fraunces', serif;      /* títulos, identidade da marca */
+  --font-body: 'Work Sans', sans-serif;   /* corpo de texto, UI */
+
+  /* ---------- TIPOGRAFIA: ESCALA (5 patamares) ---------- */
+  --fs-h1:    2.75rem;  /* 44px — título de hero */
+  --fs-h2:    2rem;     /* 32px — título de seção */
+  --fs-h3:    1.5rem;   /* 24px — subtítulo, título de card */
+  --fs-body:  1rem;     /* 16px — texto corrido */
+  --fs-small: 0.875rem; /* 14px — legendas, labels, notas */
+
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+
+  /* ---------- ESPAÇAMENTO: ESCALA MODULAR (base 8px) ---------- */
+  --space-1: 0.25rem;  /* 4px  — ajustes finos */
+  --space-2: 0.5rem;   /* 8px  — gap entre ícone e texto */
+  --space-3: 1rem;     /* 16px — padding interno de componentes */
+  --space-4: 1.5rem;   /* 24px — espaço entre elementos de um bloco */
+  --space-5: 2rem;     /* 32px — separação entre blocos */
+  --space-6: 3rem;     /* 48px — respiro entre seções */
+  --space-7: 4rem;     /* 64px — respiro de topo/rodapé de seção */
+
+  /* ---------- BORDAS E SOMBRA (uso discreto, não decorativo) ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 1px 3px rgba(33, 31, 28, 0.08);
+}

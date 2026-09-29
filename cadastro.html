@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instituto Raízes | Seja voluntário</title>
   <meta name="description" content="Cadastre-se para ser voluntário do Instituto Raízes nas frentes de educação, alimentação ou meio ambiente.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos do Design System e Grid -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
@@ -15,8 +19,12 @@
     <div class="container header-inner">
       <a href="index.html" class="logo">Instituto Raízes</a>
 
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Abrir menu de navegação">
+        <span class="nav-toggle-icon"></span>
+      </button>
+
       <nav aria-label="Navegação principal">
-        <ul class="nav-list">
+        <ul class="nav-list" id="navList">
           <li><a href="index.html">Início</a></li>
           <li><a href="projetos.html">Projetos</a></li>
           <li><a href="cadastro.html" aria-current="page">Seja voluntário</a></li>
@@ -229,5 +237,6 @@
   </footer>
 
   <script src="js/mascara.js"></script>
+  <script src="js/nav.js" defer></script>
 </body>
 </html>
